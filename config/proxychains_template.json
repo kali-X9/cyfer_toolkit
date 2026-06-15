@@ -1,0 +1,31 @@
+```json
+{
+  "strict_chain": true,
+  "quiet_mode": false,
+  "proxy_dns": true,
+  "remote_dns_subnet": 224,
+  "tcp_read_time_out": 15000,
+  "tcp_connect_time_out": 8000,
+  "localnet": "127.0.0.0/255.0.0.0",
+  "localnet_for_plaintext": "10.0.0.0/8, 172.16.0.0/12,
+192.168.0.0/16",
+  "proxy_list": [
+    {
+      "type": "socks5",
+      "ip": "127.0.0.1",
+      "port": "{TOR_SOCKS_PORT}",
+      "options": ""
+    },
+    {
+      "type": "socks5",
+      "ip": "127.0.0.1",
+      "port": "{V2RAY_PORT}",
+      "options": ""
+    }
+  ],
+  "dns": {
+    "nameserver": ["127.0.0.1:{DNSCRYPT_PORT}"],
+    "fallback": ["9.9.9.9", "1.1.1.1"]
+  }
+}
+```
