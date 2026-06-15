@@ -1,0 +1,86 @@
+```json
+{
+  "general": {
+    "version": "3.0-OMEGA",
+    "auto_start": true,
+    "auto_update": true,
+    "log_level": "DEBUG",
+    "encrypt_logs": true,
+    "max_log_size_mb": 10
+  },
+  "anonymity": {
+    "enable_tor": true,
+    "enable_dnscrypt": true,
+    "enable_v2ray": true,
+    "enable_obfs4": true,
+    "enable_snowflake": true,
+    "port_range": [30000, 50000],
+    "ipv6": false,
+    "dns_leak_protection": true,
+    "kill_switch": true
+  },
+  "security": {
+    "enable_clamav": true,
+    "enable_yara": true,
+    "enable_inotify": true,
+    "quarantine_dir":
+"/data/data/com.termux/files/home/.cyfer_quarantine",
+    "whitelist_path":
+"/data/data/com.termux/files/home/cyfer_toolkit/config/whitelist.j"/data/data/com.termux/files/home/cyfer_toolit/config/whitelist.json"
+  },
+  "network": {
+    "max_hop_count": 3,
+    "connection_timeout": 30,
+    "dns_servers": ["9.9.9.9", "1.1.1.1"],
+    "allowed_countries": ["ch", "is", "li", "pa"],
+    "blocked_countries": ["us", "gb", "ca", "au", "nz", "ru",
+"cn", "ir", "kp", "sy"]
+  }
+}
+```
+
+#### 2. **`config/torrc_template.json`**
+```json
+{
+  "SOCKSPort": "{TOR_SOCKS_PORT}",
+  "ControlPort": "{TOR_CONTROL_PORT}",
+  "UseBridges": 1,
+  "ClientTransportPlugin": {
+    "obfs4": "exec
+/data/data/com.termux/files/usr/bin/obfs4proxy",
+    "snowflake": "exec
+/data/data/com.termux/files/usr/bin/snowflake-client"
+  },
+  "Bridge": {
+    "obfs4": [
+      "obfs4 193.11.114.134:443
+1BE2C4A8D8E71BE2C4A8D8E71BE2C4A8D8E71BE2C4
+cert=2lB5NbmmZj6d9mNslTxGd+OZfC1ZcUO/rG9UJSEiSsoRlT2bER7yKBU6F3YEQcert=2lB5NbmmZj6d9mNslTGd+OZfC1ZcUO/rG9UJSEiSsoRlT2bER7yKBU6F3YEQJIT1w7Q iat-mode=0",
+      "obfs4 51.222.84.176:80
+0B5D0AB47C5A1F2E3B3D9E7C7E8C9A0D1B2C3D4
+cert=3q7K4tUKLmUv0N7z8X9y1ZaBcDeFgHiJkLmNoPqRsTuVwXyZ2AbCdEfGh4Ij5cert=3q7K4tUKLmUv0N7z8X9y1aBcDeFgHiJkLmNoPqRsTuVwXyZ2AbCdEfGh4Ij5O6p7Q iat-mode=0"
+    ],
+    "snowflake": [
+      "snowflake 192.0.2.3:1
+2B280B23E1107BB62ABFC40DDCC8824814F80A72",
+      "snowflake 192.0.2.4:2
+2B280B23E1107BB62ABFC40DDCC8824814F80A73"
+    ]
+  },
+  "DisableIPv6": 1,
+  "SafeSocks": 1,
+  "NoExec": 1,
+  "HardwareAccel": 0,
+  "Sandbox": 1,
+  "DisableDebuggerAttachment": 1,
+  "StrictNodes": 1,
+  "ExcludeNodes": "{blocked_countries}",
+  "NumEntryGuards": 3,
+  "UseEntryGuards": 1,
+  "Log": "notice file /dev/null",
+  "RunAsDaemon": 1,
+  "DataDirectory": "/data/data/com.termux/files/home/.tor",
+  "HashedControlPassword": "{TOR_CONTROL_PASSWORD_HASH}",
+  "CookieAuthentication": 1
+}
+```
