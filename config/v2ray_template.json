@@ -1,0 +1,48 @@
+``json
+{
+  "log": {
+    "loglevel": "warning",
+    "access": "/dev/null",
+    "error": "/dev/null"
+  },
+  "inbounds": [{
+    "port": "{V2RAY_PORT}",
+    "protocol": "socks",
+    "settings": {
+      "auth": "noauth",
+      "udp": true,
+      "ip": "127.0.0.1",
+      "userLevel": 0
+    },
+    "streamSettings": {
+      "network": "ws",
+      "security": "none",
+      "wsSettings": {
+        "path": "/cyfer-omega",
+        "headers": {
+          "Host": "www.google.com",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64;
+x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124
+Safari/537.36"
+        }
+      }
+    }
+  }],
+  "outbounds": [{
+    "protocol": "freedom",
+    "settings": {},
+    "tag": "direct"
+  }, {
+    "protocol": "blackhole",
+    "settings": {},
+    "tag": "blocked"
+  }],
+  "routing": {
+    "domainStrategy": "IPIfNonMatch",
+    "rules": [{
+      "type": "field",
+      "ip": ["geoip:private"],
+      "outboundTag": "blocked"
+    }]
+  }
+}
