@@ -1,0 +1,67 @@
+cyfer_toolkit/
+├── config/
+│   ├── settings.json
+│   ├── torrc_template.json
+│   ├── dnscrypt_template.json
+│   ├── proxychains_template.json
+│   ├── v2ray_template.json
+│   ├── bridges.json
+│   ├── yara_rules/android_malware.yar
+│   └── whitelist.json
+├── src/
+│   ├── main.py
+│   ├── modules/
+│   │   ├── anonymity/
+│   │   │   ├── tor_manager.py
+│   │   │   ├── dnscrypt_manager.py
+│   │   │   ├── proxychains_manager.py
+│   │   │   ├── v2ray_manager.py
+│   │   │   └── bridge_rotator.py
+│   │   ├── security/
+│   │   │   ├── encryption.py
+│   │   │   ├── decryption.py
+│   │   │   ├── log_obfuscator.py
+│   │   │   └── secure_delete.py
+│   │   ├── monitoring/
+│   │   │   ├── osmonitor_wrapper.py
+│   │   │   ├── inotify_monitor.py
+│   │   │   ├── yara_scanner.py
+│   │   │   ├── clamav_scanner.py
+│   │   │   └── netstat_monitor.py
+│   │   ├── self_healing/
+│   │   │   ├── anomaly_detector.py
+│   │   │   ├── response_engine.py
+│   │   │   ├── recovery_engine.py
+│   │   │   ├── adaptive_learner.py
+│   │   │   └── kill_switch.py
+│   │   ├── network/
+│   │   │   ├── browser_proxy.py
+│   │   │   ├── multi_hop.py
+│   │   │   └── ip_rotator.py
+│   │   ├── guard_node/
+│   │   │   ├── fake_mirror_server.py
+│   │   │   ├── consensus_spoofer.py
+│   │   │   └── guard_injector.py
+│   │   └── utilities/
+│   │       ├── port_manager.py
+│   │       ├── config_manager.py
+│   │       ├── process_manager.py
+│   │       ├── file_manager.py
+│   │       └── notification_manager.py
+│   └── cli/
+│       ├── dashboard.py
+│       └── interactive_menu.py
+├── scripts/
+│   ├── install_dependencies.sh
+│   ├── configure_environment.sh
+│   ├── start_cyfer.sh
+│   ├── stop_cyfer.sh
+│   ├── rotate_ports.sh
+│   ├── test_leaks.sh
+│   └── emergency_nuke.sh
+├── docs/
+│   ├── SETUP_GUIDE.md
+│   ├── USAGE_GUIDE.md
+│   └── TROUBLESHOOTING.md
+└── logs/
+    └── cyfer_ultimate.log.enc
