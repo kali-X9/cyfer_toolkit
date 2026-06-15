@@ -1,0 +1,39 @@
+{
+  "general": {
+    "version": "3.0-OMEGA",
+    "auto_start": true,
+    "auto_update": true,
+    "log_level": "DEBUG",
+    "encrypt_logs": true,
+    "max_log_size_mb": 10
+  },
+  "anonymity": {
+    "enable_tor": true,
+    "enable_dnscrypt": true,
+    "enable_v2ray": true,
+    "enable_obfs4": true,
+    "enable_snowflake": true,
+    "port_range": [30000, 50000],
+    "ipv6": false,
+    "dns_leak_protection": true,
+    "kill_switch": true
+  },
+  "security": {
+    "enable_clamav": true,
+    "enable_yara": true,
+    "enable_inotify": true,
+    "quarantine_dir":
+"/data/data/com.termux/files/home/.cyfer_quarantine",
+    "whitelist_path":
+"/data/data/com.termux/files/home/cyfer_toolkit/config/whitelist.j"/data/data/com.termux/files/home/cyfer_toolit/config/whitelist.json"
+  },
+  "network": {
+    "max_hop_count": 3,
+    "connection_timeout": 30,
+    "dns_servers": ["9.9.9.9", "1.1.1.1"],
+    "allowed_countries": ["ch", "is", "li", "pa"],
+    "blocked_countries": ["us", "gb", "ca", "au", "nz", "ru",
+"cn", "ir", "kp", "sy"]
+  }
+}
+```
